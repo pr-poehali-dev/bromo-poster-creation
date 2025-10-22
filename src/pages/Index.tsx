@@ -8,7 +8,7 @@ const Index = () => {
       id: 1,
       title: 'ВМЕСТЕ МЫ — СИЛА',
       subtitle: 'Команда профессионалов строит будущее',
-      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/5d6f255c-fce1-4d34-8a8f-5fa5e8e438c0.jpg',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/42253e9b-377b-4e43-9581-5091ee7d3c5e.jpg',
       bgColor: '#0090D9',
     },
     {
