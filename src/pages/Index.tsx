@@ -93,15 +93,6 @@ const Index = () => {
                 className="aspect-[1/1.4] relative flex flex-col"
                 style={{ backgroundColor: poster.bgColor }}
               >
-                <div className="absolute bottom-20 right-4 z-20">
-                  <img 
-                    src="https://cdn.poehali.dev/files/21ac611e-bc1f-45a0-bf3b-d55cc00e1d73.jpg" 
-                    alt="Логотип" 
-                    className="h-20 object-contain drop-shadow-2xl"
-                    style={{ mixBlendMode: 'multiply' }}
-                  />
-                </div>
-
                 <div className="flex-1 relative overflow-hidden">
                   <img 
                     src={poster.image}
