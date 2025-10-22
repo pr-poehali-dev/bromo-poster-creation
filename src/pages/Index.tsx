@@ -6,23 +6,45 @@ const Index = () => {
   const posters = [
     {
       id: 1,
-      quote: 'СОЗДАВАЙ\nБУДУЩЕЕ',
-      description: 'Каждый день — новая возможность',
+      title: 'ВМЕСТЕ МЫ — СИЛА',
+      subtitle: 'Команда профессионалов строит будущее',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/5d6f255c-fce1-4d34-8a8f-5fa5e8e438c0.jpg',
+      bgColor: '#0090D9',
     },
     {
       id: 2,
-      quote: 'ДВИГАЙСЯ\nВПЕРЁД',
-      description: 'Путь к успеху начинается с первого шага',
+      title: 'К НОВЫМ ВЫСОТАМ',
+      subtitle: 'Каждый день — шаг к вершине мастерства',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/e15ab1ce-adea-47e4-a9d1-295b4096b4fb.jpg',
+      bgColor: '#F9BC00',
     },
     {
       id: 3,
-      quote: 'ВЕРЬ\nВ СЕБЯ',
-      description: 'Твоя сила — в твоих руках',
+      title: 'ЕДИНАЯ КОМАНДА',
+      subtitle: 'Вместе мы достигаем невозможного',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/4919403f-40ed-4d5f-aab6-ae95af2ce892.jpg',
+      bgColor: '#3D3D3D',
     },
     {
       id: 4,
-      quote: 'БУДЬ\nЛУЧШЕ',
-      description: 'Совершенствуйся каждый день',
+      title: 'ПРОФЕССИОНАЛИЗМ',
+      subtitle: 'Мастерство в каждом движении',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/3a023189-d254-42dd-bd01-13186f0c7454.jpg',
+      bgColor: '#0090D9',
+    },
+    {
+      id: 5,
+      title: 'ИДЕИ И РЕШЕНИЯ',
+      subtitle: 'Инновации ведут нас вперёд',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/0cf6234a-eef9-4df8-b8bd-bfc1c201b9a0.jpg',
+      bgColor: '#F9BC00',
+    },
+    {
+      id: 6,
+      title: 'НАШЕ ДОСТИЖЕНИЕ',
+      subtitle: 'Строим будущее Ямала вместе',
+      image: 'https://cdn.poehali.dev/projects/3c738235-f3f5-4d0b-a3d4-974e185b7957/files/e53e9a69-4307-4098-bb08-c79cfc1056e4.jpg',
+      bgColor: '#3D3D3D',
     },
   ];
 
@@ -37,67 +59,88 @@ const Index = () => {
     if (!ctx) return;
 
     const link = document.createElement('a');
-    link.download = `bromo-poster-${posterId}.png`;
+    link.download = `yamal-poster-${posterId}.png`;
     link.href = canvas.toDataURL();
     link.click();
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16 animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F5F5] to-[#E8E8E8]">
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12 animate-fade-in">
           <img 
-            src="https://cdn.poehali.dev/files/364ad1f2-8e41-466f-bb39-f7295ef4ad7b.PNG" 
-            alt="БРОМО" 
-            className="h-20 object-contain mx-auto mb-8"
+            src="https://cdn.poehali.dev/files/21ac611e-bc1f-45a0-bf3b-d55cc00e1d73.jpg" 
+            alt="Ямалсеверстройурал" 
+            className="h-32 object-contain mx-auto mb-6"
           />
-          <h1 className="text-5xl font-bold mb-4 text-[#1A1A1A]">
-            Мотивационные постеры БРОМО
+          <h1 className="text-5xl font-bold mb-4 text-[#3D3D3D]">
+            Мотивационные постеры
           </h1>
-          <p className="text-[#666] text-lg">
-            Минималистичная серия для печати в форматах A3/A4
+          <p className="text-[#666] text-xl font-medium">
+            Ямалсеверстройурал — команда профессионалов
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {posters.map((poster, index) => (
             <Card
               key={poster.id}
-              className="overflow-hidden hover-scale group bg-white shadow-lg"
+              className="overflow-hidden hover-scale group bg-white shadow-xl border-4 border-[#F9BC00]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div
                 id={`poster-${poster.id}`}
-                className="aspect-[1/1.4] relative bg-white p-12 flex flex-col justify-between"
+                className="aspect-[1/1.4] relative flex flex-col"
+                style={{ backgroundColor: poster.bgColor }}
               >
-                <div className="relative z-10 flex justify-center mb-auto">
+                <div className="absolute top-4 left-4 right-4 z-20">
                   <img 
-                    src="https://cdn.poehali.dev/files/364ad1f2-8e41-466f-bb39-f7295ef4ad7b.PNG" 
-                    alt="БРОМО" 
-                    className="w-24 h-24 object-contain opacity-90"
+                    src="https://cdn.poehali.dev/files/21ac611e-bc1f-45a0-bf3b-d55cc00e1d73.jpg" 
+                    alt="Логотип" 
+                    className="h-16 object-contain mx-auto drop-shadow-lg"
                   />
                 </div>
 
-                <div className="relative z-10 text-center my-auto">
-                  <h2 className="text-4xl font-bold text-[#1A1A1A] mb-6 leading-tight whitespace-pre-line tracking-tight">
-                    {poster.quote}
-                  </h2>
-                  <div className="w-16 h-1 bg-[#FF6B00] mx-auto mb-6"></div>
-                  <p className="text-sm text-[#666] font-normal">
-                    {poster.description}
+                <div className="flex-1 relative overflow-hidden">
+                  <img 
+                    src={poster.image}
+                    alt={poster.title}
+                    className="w-full h-full object-cover"
+                    style={{
+                      filter: 'contrast(1.1) saturate(1.2)',
+                      mixBlendMode: 'multiply',
+                    }}
+                  />
+                  <div 
+                    className="absolute inset-0" 
+                    style={{
+                      background: `linear-gradient(to bottom, ${poster.bgColor}00 0%, ${poster.bgColor}dd 100%)`,
+                    }}
+                  ></div>
+                </div>
+
+                <div className="relative z-10 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="border-l-4 border-[#F9BC00] pl-4 mb-3">
+                    <h2 className="text-3xl font-black text-white mb-2 leading-tight tracking-tight uppercase">
+                      {poster.title}
+                    </h2>
+                  </div>
+                  <p className="text-base text-white/90 font-medium">
+                    {poster.subtitle}
                   </p>
                 </div>
 
-                <div className="relative z-10 flex justify-center mt-auto">
-                  <div className="text-xs text-[#999] font-medium">БРОМО</div>
-                </div>
+                <div 
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{ backgroundColor: '#F9BC00' }}
+                ></div>
               </div>
 
-              <div className="p-4 bg-white border-t">
+              <div className="p-4 bg-white border-t-2 border-[#F9BC00]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-semibold text-sm text-[#1A1A1A]">Постер {poster.id}/4</p>
-                    <p className="text-xs text-[#666]">A3/A4 формат</p>
+                    <p className="font-bold text-sm text-[#3D3D3D]">Постер {poster.id}/6</p>
+                    <p className="text-xs text-[#666]">A3/A4 формат • Комикс-стиль</p>
                   </div>
                   <Button
                     size="sm"
@@ -105,7 +148,7 @@ const Index = () => {
                       e.stopPropagation();
                       handleDownload(poster.id);
                     }}
-                    className="gap-2 bg-[#FF6B00] hover:bg-[#FF8C42]"
+                    className="gap-2 bg-[#0090D9] hover:bg-[#0090D9]/90 text-white font-bold"
                   >
                     <Icon name="Download" size={16} />
                     Скачать
@@ -116,40 +159,40 @@ const Index = () => {
           ))}
         </div>
 
-        <Card className="p-8 bg-white shadow-lg border-[#E5E5E5]">
+        <Card className="p-8 bg-white shadow-xl border-4 border-[#F9BC00]">
           <div className="flex items-start gap-6">
-            <div className="bg-[#FF6B00]/10 p-4 rounded-lg">
-              <Icon name="Info" size={32} className="text-[#FF6B00]" />
+            <div className="bg-[#0090D9]/10 p-4 rounded-xl border-2 border-[#0090D9]">
+              <Icon name="Info" size={32} className="text-[#0090D9]" />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-4 text-[#1A1A1A]">О коллекции</h3>
+              <h3 className="text-3xl font-bold mb-4 text-[#3D3D3D]">О коллекции постеров</h3>
               <div className="grid md:grid-cols-2 gap-6 text-sm">
                 <div className="flex items-start gap-3">
-                  <Icon name="Frame" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                  <Icon name="Users" size={24} className="text-[#F9BC00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-[#1A1A1A] mb-1">Готовы к печати</p>
-                    <p className="text-[#666]">Форматы A3 (297×420 мм) и A4 (210×297 мм) для рамок</p>
+                    <p className="font-bold text-[#3D3D3D] mb-1 text-base">Для команды</p>
+                    <p className="text-[#666]">Мотивационные постеры для сотрудников и коллег</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Icon name="Sparkles" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                  <Icon name="Palette" size={24} className="text-[#F9BC00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-[#1A1A1A] mb-1">Минимализм</p>
-                    <p className="text-[#666]">Чистый дизайн, который впишется в любой интерьер</p>
+                    <p className="font-bold text-[#3D3D3D] mb-1 text-base">Комикс-стиль</p>
+                    <p className="text-[#666]">Яркие иллюстрации в стиле графических романов</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Icon name="Zap" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                  <Icon name="Hexagon" size={24} className="text-[#F9BC00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-[#1A1A1A] mb-1">Мотивация</p>
-                    <p className="text-[#666]">Вдохновляющие цитаты для ежедневного настроя</p>
+                    <p className="font-bold text-[#3D3D3D] mb-1 text-base">Фирменный стиль</p>
+                    <p className="text-[#666]">Цвета и логотип Ямалсеверстройурал на каждом постере</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Icon name="Hexagon" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
+                  <Icon name="Frame" size={24} className="text-[#F9BC00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-[#1A1A1A] mb-1">Фирменный стиль</p>
-                    <p className="text-[#666]">Логотип БРОМО на каждом постере</p>
+                    <p className="font-bold text-[#3D3D3D] mb-1 text-base">Готовы к печати</p>
+                    <p className="text-[#666]">Форматы A3/A4 для размещения в офисе</p>
                   </div>
                 </div>
               </div>
