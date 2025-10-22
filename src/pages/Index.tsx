@@ -1,32 +1,28 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [selectedPoster, setSelectedPoster] = useState<number | null>(null);
-
   const posters = [
     {
       id: 1,
-      title: 'БРОМО',
-      subtitle: 'Инновации в действии',
-      gradient: 'from-[#FF6B00] via-[#FF8C42] to-[#FF6B00]',
-      pattern: 'hexagon-large',
+      quote: 'СОЗДАВАЙ\nБУДУЩЕЕ',
+      description: 'Каждый день — новая возможность',
     },
     {
       id: 2,
-      title: 'БРОМО',
-      subtitle: 'Двигайся вперёд',
-      gradient: 'from-[#FF8C42] via-[#FF6B00] to-[#FF4500]',
-      pattern: 'hexagon-grid',
+      quote: 'ДВИГАЙСЯ\nВПЕРЁД',
+      description: 'Путь к успеху начинается с первого шага',
     },
     {
       id: 3,
-      title: 'БРОМО',
-      subtitle: 'Сила технологий',
-      gradient: 'from-[#FF4500] via-[#FF6B00] to-[#FF8C42]',
-      pattern: 'hexagon-scattered',
+      quote: 'ВЕРЬ\nВ СЕБЯ',
+      description: 'Твоя сила — в твоих руках',
+    },
+    {
+      id: 4,
+      quote: 'БУДЬ\nЛУЧШЕ',
+      description: 'Совершенствуйся каждый день',
     },
   ];
 
@@ -47,101 +43,61 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12 animate-fade-in">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <img 
-              src="https://cdn.poehali.dev/files/1e9028d0-7161-4f94-9b89-26a3e5a56906.PNG" 
-              alt="БРОМО" 
-              className="h-16 object-contain"
-            />
-          </div>
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            Коллекция постеров БРОМО
+    <div className="min-h-screen bg-[#F5F5F5]">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center mb-16 animate-fade-in">
+          <img 
+            src="https://cdn.poehali.dev/files/364ad1f2-8e41-466f-bb39-f7295ef4ad7b.PNG" 
+            alt="БРОМО" 
+            className="h-20 object-contain mx-auto mb-8"
+          />
+          <h1 className="text-5xl font-bold mb-4 text-[#1A1A1A]">
+            Мотивационные постеры БРОМО
           </h1>
-          <p className="text-muted-foreground text-lg">
-            Современные дизайны для печати в форматах A3/A4
+          <p className="text-[#666] text-lg">
+            Минималистичная серия для печати в форматах A3/A4
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {posters.map((poster, index) => (
             <Card
               key={poster.id}
-              className="overflow-hidden hover-scale cursor-pointer group relative"
+              className="overflow-hidden hover-scale group bg-white shadow-lg"
               style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => setSelectedPoster(poster.id)}
             >
               <div
                 id={`poster-${poster.id}`}
-                className="aspect-[1/1.4] relative bg-gradient-to-br p-12 flex flex-col justify-between"
-                style={{
-                  backgroundImage: `linear-gradient(to bottom right, #FF6B00, #FF8C42, #FF6B00)`,
-                }}
+                className="aspect-[1/1.4] relative bg-white p-12 flex flex-col justify-between"
               >
-                <div className="absolute inset-0 opacity-10">
-                  {poster.pattern === 'hexagon-large' && (
-                    <svg className="w-full h-full" viewBox="0 0 400 600">
-                      <polygon points="200,50 350,125 350,275 200,350 50,275 50,125" fill="none" stroke="white" strokeWidth="2" />
-                      <polygon points="200,200 300,250 300,350 200,400 100,350 100,250" fill="none" stroke="white" strokeWidth="2" />
-                    </svg>
-                  )}
-                  {poster.pattern === 'hexagon-grid' && (
-                    <svg className="w-full h-full" viewBox="0 0 400 600">
-                      {[...Array(3)].map((_, row) =>
-                        [...Array(3)].map((_, col) => (
-                          <polygon
-                            key={`${row}-${col}`}
-                            points={`${100 + col * 100},${100 + row * 150} ${150 + col * 100},${75 + row * 150} ${200 + col * 100},${100 + row * 150} ${200 + col * 100},${150 + row * 150} ${150 + col * 100},${175 + row * 150} ${100 + col * 100},${150 + row * 150}`}
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="1"
-                          />
-                        ))
-                      )}
-                    </svg>
-                  )}
-                  {poster.pattern === 'hexagon-scattered' && (
-                    <svg className="w-full h-full" viewBox="0 0 400 600">
-                      <polygon points="80,100 130,75 180,100 180,150 130,175 80,150" fill="white" opacity="0.3" />
-                      <polygon points="250,150 300,125 350,150 350,200 300,225 250,200" fill="white" opacity="0.2" />
-                      <polygon points="100,350 150,325 200,350 200,400 150,425 100,400" fill="white" opacity="0.25" />
-                      <polygon points="280,400 330,375 380,400 380,450 330,475 280,450" fill="white" opacity="0.15" />
-                    </svg>
-                  )}
+                <div className="relative z-10 flex justify-center mb-auto">
+                  <img 
+                    src="https://cdn.poehali.dev/files/364ad1f2-8e41-466f-bb39-f7295ef4ad7b.PNG" 
+                    alt="БРОМО" 
+                    className="w-24 h-24 object-contain opacity-90"
+                  />
                 </div>
 
-                <div className="relative z-10">
-                  <div className="w-16 h-16 mb-4">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="#FF6B00" stroke="#1A1A1A" strokeWidth="3" />
-                    </svg>
-                  </div>
-                </div>
-
-                <div className="relative z-10 text-center">
-                  <h2 className="text-6xl font-bold text-[#1A1A1A] mb-4 tracking-tight">
-                    {poster.title}
+                <div className="relative z-10 text-center my-auto">
+                  <h2 className="text-4xl font-bold text-[#1A1A1A] mb-6 leading-tight whitespace-pre-line tracking-tight">
+                    {poster.quote}
                   </h2>
-                  <p className="text-xl text-white font-medium">
-                    {poster.subtitle}
+                  <div className="w-16 h-1 bg-[#FF6B00] mx-auto mb-6"></div>
+                  <p className="text-sm text-[#666] font-normal">
+                    {poster.description}
                   </p>
                 </div>
 
-                <div className="relative z-10 flex justify-center">
-                  <div className="flex gap-2">
-                    <div className="w-12 h-12 border-2 border-white/30 backdrop-blur-sm" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
-                    <div className="w-8 h-8 border-2 border-white/20 backdrop-blur-sm" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
-                  </div>
+                <div className="relative z-10 flex justify-center mt-auto">
+                  <div className="text-xs text-[#999] font-medium">БРОМО</div>
                 </div>
               </div>
 
-              <div className="p-4 bg-card">
+              <div className="p-4 bg-white border-t">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-semibold text-sm">Постер #{poster.id}</p>
-                    <p className="text-xs text-muted-foreground">A3/A4 формат</p>
+                    <p className="font-semibold text-sm text-[#1A1A1A]">Постер {poster.id}/4</p>
+                    <p className="text-xs text-[#666]">A3/A4 формат</p>
                   </div>
                   <Button
                     size="sm"
@@ -149,7 +105,7 @@ const Index = () => {
                       e.stopPropagation();
                       handleDownload(poster.id);
                     }}
-                    className="gap-2"
+                    className="gap-2 bg-[#FF6B00] hover:bg-[#FF8C42]"
                   >
                     <Icon name="Download" size={16} />
                     Скачать
@@ -160,40 +116,40 @@ const Index = () => {
           ))}
         </div>
 
-        <Card className="p-8 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+        <Card className="p-8 bg-white shadow-lg border-[#E5E5E5]">
           <div className="flex items-start gap-6">
-            <div className="bg-primary/10 p-4 rounded-lg">
-              <Icon name="Info" size={32} className="text-primary" />
+            <div className="bg-[#FF6B00]/10 p-4 rounded-lg">
+              <Icon name="Info" size={32} className="text-[#FF6B00]" />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-3">О постерах</h3>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-muted-foreground">
-                <div className="flex items-start gap-2">
-                  <Icon name="CheckCircle" size={20} className="text-primary mt-0.5" />
+              <h3 className="text-2xl font-bold mb-4 text-[#1A1A1A]">О коллекции</h3>
+              <div className="grid md:grid-cols-2 gap-6 text-sm">
+                <div className="flex items-start gap-3">
+                  <Icon name="Frame" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Форматы A3/A4</p>
-                    <p>Готовы к печати в типографии</p>
+                    <p className="font-semibold text-[#1A1A1A] mb-1">Готовы к печати</p>
+                    <p className="text-[#666]">Форматы A3 (297×420 мм) и A4 (210×297 мм) для рамок</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Icon name="Palette" size={20} className="text-primary mt-0.5" />
+                <div className="flex items-start gap-3">
+                  <Icon name="Sparkles" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Яркие градиенты</p>
-                    <p>Актуальные трендовые цвета</p>
+                    <p className="font-semibold text-[#1A1A1A] mb-1">Минимализм</p>
+                    <p className="text-[#666]">Чистый дизайн, который впишется в любой интерьер</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Icon name="Hexagon" size={20} className="text-primary mt-0.5" />
+                <div className="flex items-start gap-3">
+                  <Icon name="Zap" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Фирменный стиль</p>
-                    <p>Логотип и шестигранники БРОМО</p>
+                    <p className="font-semibold text-[#1A1A1A] mb-1">Мотивация</p>
+                    <p className="text-[#666]">Вдохновляющие цитаты для ежедневного настроя</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Icon name="Sparkles" size={20} className="text-primary mt-0.5" />
+                <div className="flex items-start gap-3">
+                  <Icon name="Hexagon" size={20} className="text-[#FF6B00] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Современный дизайн</p>
-                    <p>Минимализм и геометрия</p>
+                    <p className="font-semibold text-[#1A1A1A] mb-1">Фирменный стиль</p>
+                    <p className="text-[#666]">Логотип БРОМО на каждом постере</p>
                   </div>
                 </div>
               </div>
